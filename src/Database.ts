@@ -1,3 +1,5 @@
+import { EditorInterface } from  './Interfaces/EditorInterface';
+
 export class Database {
     private db: firebase.firestore.Firestore;
     
@@ -7,10 +9,10 @@ export class Database {
         this.db = db;
     }
     
-    save(userId: string, editor: CodeMirror.Editor) {
+    save(userId: string, editor: EditorInterface) {
         this.db.collection('bins').add({
             user: userId,
-            amphtml: editor.getValue(),
+            amphtml: editor.getCode(),
             saved: new Date().getTime()
         }).then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
@@ -22,12 +24,12 @@ export class Database {
         ;
     }
     
-    load(binId: string, editor: CodeMirror.Editor) {
+    load(binId: string, editor: EditorInterface) {
         let docRef = this.db.collection('bins').doc(binId.replace("#", ""));
         
         docRef.get().then((doc) => {
             if(doc.exists) {
-                return editor.setValue(doc.data().amphtml);
+                return editor.setCode(doc.data().amphtml);
             }
         }).catch((error) => {
             console.error("Error reading document: ", error);

@@ -4,7 +4,9 @@ import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/xml/xml';
 
-export class Editor {
+import { EditorInterface } from  './Interfaces/EditorInterface';
+
+export class Editor implements EditorInterface {
     private editor: CodeMirror.Editor;
     
     constructor(containerid: string, options: object) {
@@ -17,5 +19,9 @@ export class Editor {
     
     getCode() {
         return this.editor.getValue();
+    }
+    
+    setCode(amphtml: string) {
+        this.editor.setValue(amphtml);
     }
 }
