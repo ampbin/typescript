@@ -1,3 +1,4 @@
+import { updateHash } from './Helpers';
 import { EditorInterface } from  './Interfaces';
 
 export class Database {
@@ -16,7 +17,7 @@ export class Database {
             saved: new Date().getTime()
         }).then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
-            // Update URL with hash
+            updateHash(docRef.id);
             // Show toast notification
         }).catch((error) => {
             console.error("Error adding document: ", error);
