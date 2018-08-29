@@ -17,7 +17,7 @@ export class Editor implements EditorInterface {
         );
     }
     
-    getCode() {
+    getCode(): string {
         return this.editor.getValue();
     }
     
