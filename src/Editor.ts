@@ -4,7 +4,7 @@ import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/xml/xml';
 
-import { EditorInterface } from  './Interfaces/EditorInterface';
+import { EditorInterface } from  './Interfaces';
 
 export class Editor implements EditorInterface {
     private editor: CodeMirror.Editor;

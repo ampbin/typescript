@@ -1,4 +1,4 @@
-import { EditorInterface } from  './Interfaces/EditorInterface';
+import { EditorInterface } from  './Interfaces';
 
 export class Database {
     private db: firebase.firestore.Firestore;
