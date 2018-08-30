@@ -5,3 +5,7 @@ export function updateHash(hash: string) {
     
     return window.location.reload();
 }
+
+export function getEl(elId: string) {
+    return document.getElementById(elId);
+}

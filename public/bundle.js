@@ -351,15 +351,27 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./src/Events.ts":
+/*!***********************!*\
+  !*** ./src/Events.ts ***!
+  \***********************/
+/*! exports provided: Events */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Events\", function() { return Events; });\nvar Events = /** @class */ (function () {\n    function Events(userId, db, editor) {\n        this.userId = userId;\n        this.db = db;\n        this.editor = editor;\n    }\n    Events.prototype.save = function () {\n        this.db.save(this.userId, this.editor);\n    };\n    return Events;\n}());\n\n\n\n//# sourceURL=webpack:///./src/Events.ts?");
+
+/***/ }),
+
 /***/ "./src/Helpers.ts":
 /*!************************!*\
   !*** ./src/Helpers.ts ***!
   \************************/
-/*! exports provided: updateHash */
+/*! exports provided: updateHash, getEl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"updateHash\", function() { return updateHash; });\nfunction updateHash(hash) {\n    if (hash.length > 0) {\n        return window.location.hash = '#' + hash;\n    }\n    return window.location.reload();\n}\n\n\n//# sourceURL=webpack:///./src/Helpers.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"updateHash\", function() { return updateHash; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getEl\", function() { return getEl; });\nfunction updateHash(hash) {\n    if (hash.length > 0) {\n        return window.location.hash = '#' + hash;\n    }\n    return window.location.reload();\n}\nfunction getEl(elId) {\n    return document.getElementById(elId);\n}\n\n\n//# sourceURL=webpack:///./src/Helpers.ts?");
 
 /***/ }),
 
@@ -371,7 +383,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/index.cjs.js\");\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/auth */ \"./node_modules/firebase/auth/dist/index.esm.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/index.esm.js\");\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config.js */ \"./src/config.js\");\n/* harmony import */ var _Database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Database */ \"./src/Database.ts\");\n/* harmony import */ var _Editor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Editor */ \"./src/Editor.ts\");\n\n\n\n\n\n\nfirebase_app__WEBPACK_IMPORTED_MODULE_0__[\"initializeApp\"](_config_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].firebase);\nvar db = new _Database__WEBPACK_IMPORTED_MODULE_4__[\"Database\"](firebase_app__WEBPACK_IMPORTED_MODULE_0__[\"firestore\"](), { timestampsInSnapshots: true });\nvar editor = new _Editor__WEBPACK_IMPORTED_MODULE_5__[\"Editor\"]('editor', _config_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].editor);\n\n\n//# sourceURL=webpack:///./src/app.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/index.cjs.js\");\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/auth */ \"./node_modules/firebase/auth/dist/index.esm.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/index.esm.js\");\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config.js */ \"./src/config.js\");\n/* harmony import */ var _Database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Database */ \"./src/Database.ts\");\n/* harmony import */ var _Editor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Editor */ \"./src/Editor.ts\");\n/* harmony import */ var _Events__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Events */ \"./src/Events.ts\");\n/* harmony import */ var _Helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Helpers */ \"./src/Helpers.ts\");\n\n\n\n\n\n\n\n\nfirebase_app__WEBPACK_IMPORTED_MODULE_0__[\"initializeApp\"](_config_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].firebase);\nvar db = new _Database__WEBPACK_IMPORTED_MODULE_4__[\"Database\"](firebase_app__WEBPACK_IMPORTED_MODULE_0__[\"firestore\"](), { timestampsInSnapshots: true });\nvar editor = new _Editor__WEBPACK_IMPORTED_MODULE_5__[\"Editor\"]('editor', _config_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"].editor);\nvar events = new _Events__WEBPACK_IMPORTED_MODULE_6__[\"Events\"](\"userid\", db, editor);\nvar save = Object(_Helpers__WEBPACK_IMPORTED_MODULE_7__[\"getEl\"])('save');\nsave.onclick = function () {\n    events.save();\n};\n\n\n//# sourceURL=webpack:///./src/app.ts?");
 
 /***/ }),
 
