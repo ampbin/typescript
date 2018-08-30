@@ -13,7 +13,4 @@ let db = new Database(firebase.firestore(), {timestampsInSnapshots: true});
 let editor = new Editor('editor', config.editor);
 let events = new Events("userid", db, editor);
 
-let save = getEl('save');
-save.onclick = () => {
-    events.save();
-}
+getEl('save').onclick = () => events.save();
