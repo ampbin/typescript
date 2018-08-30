@@ -15,5 +15,21 @@
         <h1>Hello</h1>
     </textarea>
     <script src="/bundle.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBmSS-smthh30c4F7_Pp8OKQfVyqYHaJ9s",
+            authDomain: "ampbin-staging.firebaseapp.com",
+            databaseURL: "https://ampbin-staging.firebaseio.com",
+            projectId: "ampbin-staging",
+            storageBucket: "ampbin-staging.appspot.com",
+            messagingSenderId: "582130792467"
+        };
+        
+        ampbin({
+            'editor': 'editor', // ID of textarea for editor
+            'save': 'save', // ID of save button
+            'firebase': firebaseConfig,
+        });
+    </script>
 </body>
 </html>

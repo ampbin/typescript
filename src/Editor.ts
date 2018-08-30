@@ -9,11 +9,14 @@ import { EditorInterface } from  './Interfaces';
 export class Editor implements EditorInterface {
     private editor: CodeMirror.Editor;
     
-    constructor(containerid: string, options: object) {
+    constructor(containerid: string) {
         let _editor = <HTMLTextAreaElement> document.getElementById(containerid);
         this.editor = CodeMirror.fromTextArea(
             _editor, 
-            options
+            {
+                mode: 'text/html',
+                lineNumbers: true
+            }
         );
     }
     
