@@ -1,4 +1,4 @@
 export interface EditorInterface {
-    setCode(amphtml: string);
-    getCode();
+    setCode(amphtml: string): any;
+    getCode(): any;
 }
