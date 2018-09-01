@@ -9,3 +9,7 @@ export function updateHash(hash: string) {
 export function getEl(elId: string) {
     return document.getElementById(elId);
 }
+
+export function getHash(): string {
+    return window.location.hash;
+}

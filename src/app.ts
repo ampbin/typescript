@@ -4,7 +4,7 @@ import 'firebase/firestore';
 import { Database } from './Database';
 import { Editor } from './Editor';
 import { Events } from './Events';
-import { getEl } from './Helpers';
+import { getEl, getHash } from './Helpers';
 
 function ampbin(ampbinConfig: any) {
     // Load firebase
@@ -16,7 +16,12 @@ function ampbin(ampbinConfig: any) {
     let events = new Events("userid", db, editor);
     
     // Event handlers
+    // # Save bin
     getEl(ampbinConfig.save).onclick = () => events.save();
+    
+    // Loader
+    // # Load bin if there is a hash in the URL
+    (getHash().length > 0) ? db.load(getHash(), editor) : '';
 }
 
 const _global = window as any
