@@ -1,18 +1,27 @@
 import { Database } from './Database';
 import { Editor } from './Editor';
+import { Auth } from './Auth';
 
 export class Events {
-    private userId: string;
+    private auth: Auth;
     private db: Database;
     private editor: Editor;
     
-    constructor(userId: string, db: Database, editor: Editor) {
-        this.userId = userId;
+    constructor(auth: Auth, db: Database, editor: Editor) {
         this.db = db;
         this.editor = editor;
+        this.auth = auth;
     }
     
     save() {
-        this.db.save(this.userId, this.editor);
+        this.db.save(this.auth.getUserId(), this.editor);
+    }
+    
+    authChange() {
+        this.auth.getAuth().onAuthStateChanged(function(user) {
+          if (user) {
+            console.log(user);
+          }
+        });
     }
 }
