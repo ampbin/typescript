@@ -19,21 +19,17 @@ function ampbin(ampbinConfig: any) {
     let editor = new Editor(ampbinConfig.editor);
     let events = new Events(auth, db, editor);
 
+    // authentication state observer
     firebase.auth().onAuthStateChanged((user: any) => {
-        if(user == null) {
-            return auth.loginAnonymously();
+        // Check if user is not null
+        if(user) {
+            // User is logged in, this could be anonymously or as a regular user
+            console.log(user);
+        } else {
+            // User is not logged in, so let's log them in anonymously
+            auth.loginAnonymously();
         }
     });
-
-    console.log(firebase.auth().currentUser);
-
-    // Not logged in with an account, log them in anonymously
-    if(firebase.auth().currentUser == null) {
-        //
-    }
-
-    // Listen for auth change
-    // events.authChange();
 
     // Event handlers
     // # Save bin
