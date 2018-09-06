@@ -10,6 +10,7 @@
 <body>
     <div id="header">
         <button id="save">Save</button>
+        <button id="signin">Sign-In</button>
     </div>
     <textarea name="editor" id="editor">
         <h1>Hello</h1>
@@ -24,10 +25,11 @@
             storageBucket: "ampbin-staging.appspot.com",
             messagingSenderId: "582130792467"
         };
-        
+
         ampbin({
             'editor': 'editor', // ID of textarea for editor
             'save': 'save', // ID of save button
+            'signin': 'signin', // ID of sign-in button
             'firebase': firebaseConfig,
         });
     </script>
