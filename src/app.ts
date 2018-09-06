@@ -19,18 +19,27 @@ function ampbin(ampbinConfig: any) {
     let editor = new Editor(ampbinConfig.editor);
     let events = new Events(auth, db, editor);
 
+    firebase.auth().onAuthStateChanged((user: any) => {
+        if(user == null) {
+            return auth.loginAnonymously();
+        }
+    });
+
+    console.log(firebase.auth().currentUser);
+
     // Not logged in with an account, log them in anonymously
     if(firebase.auth().currentUser == null) {
-        auth.loginAnonymously();
+        //
     }
 
     // Listen for auth change
-    events.authChange();
+    // events.authChange();
 
     // Event handlers
     // # Save bin
     getEl(ampbinConfig.save).onclick = () => events.save();
     getEl(ampbinConfig.signin).onclick = () => events.loginWithGoogle();
+    getEl(ampbinConfig.signout).onclick = () => events.logout();
 
     // Loader
     // # Load bin if there is a hash in the URL
