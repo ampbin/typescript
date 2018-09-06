@@ -17,6 +17,10 @@ export class Events {
         this.auth.login();
     }
 
+    logout() {
+        this.auth.logout();
+    }
+
     save() {
         this.db.save(this.auth.getUserId(), this.editor);
     }
