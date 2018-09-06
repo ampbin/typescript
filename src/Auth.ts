@@ -23,7 +23,7 @@ export class Auth {
     }
 
     logout() {
-
+        this.auth.signOut();
     }
 
     getAuth() {
