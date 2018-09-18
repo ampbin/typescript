@@ -36,6 +36,7 @@ function ampbin(ampbinConfig: any) {
     getEl(ampbinConfig.save).onclick = () => events.save();
     getEl(ampbinConfig.signin).onclick = () => events.loginWithGoogle();
     getEl(ampbinConfig.signout).onclick = () => events.logout();
+    getEl(ampbinConfig.newbin).onclick = () => events.newBin();
 
     // Loader
     // # Load bin if there is a hash in the URL

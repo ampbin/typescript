@@ -25,6 +25,10 @@ export class Events {
         this.db.save(this.auth.getUserId(), this.editor);
     }
 
+    newBin() {
+        window.location.href = '/';
+    }
+
     authChange() {
         this.auth.getAuth().onAuthStateChanged(function(user) {
           if (user) {
