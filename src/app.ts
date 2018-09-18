@@ -5,7 +5,7 @@ import { Database } from './Database';
 import { Editor } from './Editor';
 import { Events } from './Events';
 import { Auth } from './Auth';
-import { getEl, getHash } from './Helpers';
+import { getEl, getHash, copyBinUrl } from './Helpers';
 
 function ampbin(ampbinConfig: any) {
     // Load firebase
@@ -37,6 +37,7 @@ function ampbin(ampbinConfig: any) {
     getEl(ampbinConfig.signin).onclick = () => events.loginWithGoogle();
     getEl(ampbinConfig.signout).onclick = () => events.logout();
     getEl(ampbinConfig.newbin).onclick = () => events.newBin();
+    getEl(ampbinConfig.sharebin).onclick = () => events.copyUrl();
 
     // Loader
     // # Load bin if there is a hash in the URL
