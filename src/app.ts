@@ -6,6 +6,7 @@ import { Editor } from './Editor';
 import { Events } from './Events';
 import { Auth } from './Auth';
 import { getEl, getHash } from './Helpers';
+import { UserInterface } from './UserInterface';
 
 function ampbin(ampbinConfig: any) {
     // Load firebase
@@ -34,5 +35,8 @@ function ampbin(ampbinConfig: any) {
     (getHash().length > 0) ? db.load(getHash(), editor) : '';
 }
 
+let ui = new UserInterface;
+
 const _global = window as any
 _global.ampbin = ampbin
+_global.ui = ui;
