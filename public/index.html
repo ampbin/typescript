@@ -5,39 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.css">
 </head>
 <body>
-    <div id="header">
-        <button id="newbin">New Bin</button>
-        <button id="save">Save</button>
-        <button id="signin">Sign-In</button>
-        <button id="signout">Sign-Out</button>
-        <button id="sharebin">Share Bin</button>
-    </div>
-    <textarea name="editor" id="editor">
-        <h1>Hello</h1>
-    </textarea>
     <script src="/bundle.js"></script>
     <script>
-        var firebaseConfig = {
-            apiKey: "AIzaSyBmSS-smthh30c4F7_Pp8OKQfVyqYHaJ9s",
-            authDomain: "ampbin-staging.firebaseapp.com",
-            databaseURL: "https://ampbin-staging.firebaseio.com",
-            projectId: "ampbin-staging",
-            storageBucket: "ampbin-staging.appspot.com",
-            messagingSenderId: "582130792467"
-        };
-
-        ampbin({
-            'editor': 'editor', // ID of textarea for editor
-            'newbin': 'newbin', // ID of the new bin button
-            'save': 'save', // ID of save button
-            'signin': 'signin', // ID of sign-in button
-            'signout': 'signout', // ID of sign-out button
-            'sharebin': 'sharebin',
-            'firebase': firebaseConfig,
-        });
+    
     </script>
 </body>
 </html>
